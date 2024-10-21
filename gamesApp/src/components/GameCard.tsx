@@ -10,12 +10,11 @@ interface Props {
 
 const GameCard = ({game} : Props) => {
   return (
-    <Card borderRadius={30} overflow='hidden'>
-        <Image src={game.background_image}  width="100%"  // This ensures the image takes up the full width of the card
-        height="190px" // Adjust the height as needed
+    <Card borderRadius={30} overflow='hidden' width={'300px'} >
+        <Image src={game.background_image}  
         objectFit="cover"/>
         <CardBody>
-            <Heading fontSize='2xl'>{game.name}</Heading>
+            <Heading fontSize='2xl' textAlign='left'>{game.name}</Heading>
             <PlatformIconsList platforms={game.parent_platforms.map(p => p.platform)}/>
         </CardBody>
 
