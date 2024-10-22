@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Card, CardBody,Skeleton, SkeletonText } from '@chakra-ui/react'
 
 
@@ -6,7 +6,7 @@ import { Card, CardBody,Skeleton, SkeletonText } from '@chakra-ui/react'
 const GameCardSkeleton = () => {
   return (
     <>
-    <Card width={'300px'}  borderRadius={30} overflow='hidden'>
+    <Card>
         <Skeleton  height={'200px'}/>
         <CardBody>
             <SkeletonText />
