@@ -3,6 +3,7 @@ import { Grid, GridItem , Show} from '@chakra-ui/react'
 import Nav from './components/Nav'
 import GameGrid from './components/GameGrid';
 import GenreList from './components/GenreList';
+import { useState } from 'react';
 
 function App() {
 
