@@ -1,5 +1,5 @@
-import useGenre from '../hooks/useGenre'
-import { List, ListItem , HStack, Image, Text, Skeleton} from '@chakra-ui/react'
+import useGenre, { Genre } from '../hooks/useGenre'
+import { List, ListItem , HStack, Image, Text, Skeleton, Button, Link} from '@chakra-ui/react'
 import GameCardContainer from './GameCardContainer';
 import GameCardSkeleton from './GameCardSkeleton';
 import { useState, useEffect } from 'react';
@@ -7,9 +7,11 @@ import GenreListSkeleton from './GenreListSkeleton';
 
 
 
+interface Props {
+  onSelectGenre : (genre : Genre) => void 
+}
 
-
-const GenreList = () => {
+const GenreList = ({onSelectGenre} : Props) => {
     const {data}  = useGenre();
     const [isLoading, setLoading] = useState(true)
    
@@ -30,7 +32,7 @@ const GenreList = () => {
             <HStack>
           <Image boxSize={'35px'} borderRadius={8}  src={genre.image_background}
           />
-          <Text fontSize='lg'>{genre.name}</Text>
+          <Button onClick={() => onSelectGenre(genre)} fontSize='lg' variant='link'>{genre.name}</Button>
           </HStack>
           </ListItem> ))}
     </List>
