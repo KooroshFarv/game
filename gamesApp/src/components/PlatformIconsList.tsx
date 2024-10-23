@@ -10,6 +10,7 @@ import { IconType } from 'react-icons/lib'
 
 interface Props {
     platforms : Platform[]
+   
 }
 
 const PlatformIconsList = ({platforms} : Props) => {
