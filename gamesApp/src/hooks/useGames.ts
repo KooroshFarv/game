@@ -1,4 +1,5 @@
 import { GameQuery } from '../App';
+import searchInput from '../components/searchInput';
 import useData from './useData';
 import { Genre } from './useGenre';
 
@@ -13,10 +14,12 @@ export interface Games {
   id: number;
   name: string;
   parent_platforms: { platform: Platform }[];
+
 }
 
 const useGames = (gameQuery: GameQuery) => {
-  const { genre, platform, sortOrder } = gameQuery;
+  const { genre, platform, sortOrder, searchText } = gameQuery;
+
 
   return useData<Games>(
     '/games',
@@ -25,10 +28,11 @@ const useGames = (gameQuery: GameQuery) => {
         
         ...(genre?.id && { genres: genre.id }),
         ...(platform?.id && { platforms: platform.id }),
-       ...(sortOrder && {ordering : sortOrder})
+       ...(sortOrder && {ordering : sortOrder}),
+       ...(searchText && { search: searchText})
       },
     },
-    [genre?.id, platform?.id, sortOrder] 
+    [genre?.id, platform?.id, sortOrder, searchText] 
   );
 };
 

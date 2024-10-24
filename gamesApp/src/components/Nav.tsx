@@ -2,11 +2,17 @@ import React from 'react'
 import { HStack, Image } from '@chakra-ui/react'
 import logo from '../assets/logo.webp'
 import SwitchMode from './SwitchMode'
+import SearchInput from './searchInput'
 
-const Nav = () => {
+interface Props {
+  onSearch : (searchText : string) => void
+}
+
+const Nav = ({onSearch} : Props) => {
   return (
-   <HStack justifyContent={'space-between'} padding='10px'>
+   <HStack  padding='10px'>
     <Image src={logo} boxSize='80px'/>
+    <SearchInput onSearch={onSearch}/>
     <SwitchMode />
    </HStack>
   )
