@@ -14,6 +14,7 @@ export interface Games {
   id: number;
   name: string;
   parent_platforms: { platform: Platform }[];
+  rating_top : number
 
 }
 
