@@ -12,7 +12,7 @@ interface Props {
   selectedGenre : Genre | null
 }
 
-const GenreList = ({onSelectGenre, selectedGenre, } : Props) => {
+const GenreList = ({onSelectGenre, selectedGenre} : Props) => {
     const {data}  = useGenre();
    
 
