@@ -36,8 +36,8 @@ const useGames = (gameQuery : GameQuery) => useInfiniteQuery<FetchRes<Games>, Er
   }),
   getNextPageParam: (lastPage, allPages) => {
     return lastPage.next ? allPages.length + 1 : undefined;
-    
-  }
+  },
+  staleTime : 26 * 60 * 60 * 1000 //24 hours
 })
 
 export default useGames;
