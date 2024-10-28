@@ -12,26 +12,18 @@ interface Props {
   selectedGenre : Genre | null
 }
 
-const GenreList = ({onSelectGenre, selectedGenre} : Props) => {
+const GenreList = ({onSelectGenre, selectedGenre, } : Props) => {
     const {data}  = useGenre();
-    const [isLoading, setLoading] = useState(true)
    
-    useEffect(() => {
-      if( data.length > 0){
-      setLoading(false)
-      }
-    },[data])
 
-    if (isLoading) {
-      return <GenreListSkeleton />;
-    }
+    
     
   return (
     <>
     < Heading marginBottom={3} fontSize={'2xl'} textAlign={'left'} color={'gray.300'}>Genre</Heading>
     <List> 
     
-      {data.map(genre => (<ListItem key={genre.id} paddingY={'5px'}>
+      {data?.results.map(genre => (<ListItem key={genre.id} paddingY={'5px'}>
             <HStack marginBottom={3}>
           <Image boxSize={'35px'} borderRadius={8}  src={genre.image_background} objectFit={'cover'}
           />
