@@ -2,6 +2,7 @@
 import useData, { FetchRes } from "../services/api-client";
 import { useQueries, useQuery } from "@tanstack/react-query";
 import ApiClient from "../services/api-client";
+import ms from 'ms';
 
 
 const apiClient = new ApiClient<Genre>('/genres')
@@ -18,7 +19,7 @@ export interface Genre {
         queryFn : () => 
            apiClient
         .getAll({}),
-        staleTime : 24 * 60 * 60 * 1000,
+        staleTime : ms('24h'),
       
         
     }) 

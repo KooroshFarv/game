@@ -4,7 +4,7 @@ import { FetchRes } from '../services/api-client';
 import { Genre } from './useGenre';
 import ApiClient from '../services/api-client';
 import { Platform}  from '../hooks/usePlatfroms'
-import { MdLastPage } from 'react-icons/md';
+import ms from 'ms';
 
 
 const apiClient = new ApiClient<Games>('/games')
@@ -18,9 +18,6 @@ export interface Games {
   rating_top : number
 
 }
-
-
-
 
 
 const useGames = (gameQuery : GameQuery) => useInfiniteQuery<FetchRes<Games>, Error>({
@@ -37,7 +34,7 @@ const useGames = (gameQuery : GameQuery) => useInfiniteQuery<FetchRes<Games>, Er
   getNextPageParam: (lastPage, allPages) => {
     return lastPage.next ? allPages.length + 1 : undefined;
   },
-  staleTime : 26 * 60 * 60 * 1000 //24 hours
+  staleTime : ms('24h')
 })
 
 export default useGames;
