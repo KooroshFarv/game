@@ -5,7 +5,7 @@ import SwitchMode from './SwitchMode'
 import SearchInput from './searchInput'
 import log from '../assets/stock-vector-let-s-play-neon-sign-bright-signboard-light-banner-game-logo-neon-emblem-vector-illustration-1310883713.jpg'
 
-interface Props {
+ interface Props {
   onSearch : (searchText : string) => void
 }
 
