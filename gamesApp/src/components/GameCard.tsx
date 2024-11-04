@@ -3,6 +3,8 @@ import { Games } from '../hooks/useGames'
 import { Card, CardBody, Heading, Image, Text, useColorModeValue } from '@chakra-ui/react'
 import PlatformIconsList from './PlatformIconsList'
 import Emoji from './Emoji'
+import { Link } from 'react-router-dom'
+import { BsTranslate } from 'react-icons/bs'
 
 interface Props {
     game : Games
@@ -19,7 +21,10 @@ const GameCard = ({game} : Props) => {
          width ='100%'
          />
         <CardBody display='flex' flexDirection='column' justifyContent={'space-between'}>
-            <Heading fontSize='2xl' textAlign='left'>{game.name}
+            <Heading fontSize='2xl' textAlign='left'>
+              <Link to={'/games/' + game.slug}>
+              {game.name}
+              </Link>
               <Emoji rating={game.rating_top}/>
             </Heading>
             <PlatformIconsList platforms={game.parent_platforms.map(p => p.platform)}/>

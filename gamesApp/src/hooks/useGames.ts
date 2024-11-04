@@ -11,9 +11,11 @@ const apiClient = new ApiClient<Games>('/games')
 
 
 export interface Games {
+  slug: string;
   background_image: string | undefined;
   id: number;
   name: string;
+  description_raw : string;
   parent_platforms: { platform: Platform }[];
   rating_top : number
 

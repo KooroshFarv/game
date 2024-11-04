@@ -13,6 +13,7 @@ export interface GameQuery {
     genreId?: number ;
     platformId? : number
     searchText : string
+
   }
 
 
