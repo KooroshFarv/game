@@ -5,19 +5,22 @@ import { Genre } from './useGenre';
 import ApiClient from '../services/api-client';
 import { Platform}  from '../hooks/usePlatfroms'
 import ms from 'ms';
-
+import { Publisher } from '../pages/Publishers';
 
 const apiClient = new ApiClient<Games>('/games')
 
 
 export interface Games {
+  metacritic: any;
   slug: string;
   background_image: string | undefined;
   id: number;
+  genres : Genre[]
   name: string;
   description_raw : string;
   parent_platforms: { platform: Platform }[];
   rating_top : number
+  publishers : Publisher[]
 
 }
 
