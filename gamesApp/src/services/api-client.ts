@@ -18,6 +18,9 @@ const axiosInstance =  axios.create({
 })
 
 class ApiClient<T>{
+    static getAll(): import("@tanstack/query-core").QueryFunction<unknown, (string | number)[]> | undefined {
+        throw new Error("Method not implemented.");
+    }
     endpoint : string
     constructor(endpoint : string){
         this.endpoint = endpoint
