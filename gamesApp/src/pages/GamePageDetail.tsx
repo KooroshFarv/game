@@ -6,6 +6,7 @@ import ExpandableText from '../components/ExpandableText';
 import DefinitionItem from '../components/DefinitionItem';
 import GameAttributes from '../components/GameAttributes';
 import GameTrailers from '../components/GameTrailers';
+import Screenshots from '../components/Screenshots';
 
 
 const GamePageDetail = () => {
@@ -22,6 +23,7 @@ const GamePageDetail = () => {
       <ExpandableText>{game.description_raw}</ExpandableText> 
       <GameAttributes game={game}/>
       <GameTrailers gameId={game.id}/>
+      < Screenshots gameId={game.id}/>
     </>
   )
 }
