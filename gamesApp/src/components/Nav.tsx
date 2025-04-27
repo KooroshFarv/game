@@ -1,9 +1,9 @@
 import React from 'react'
 import { HStack, Image } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import logo from '../assets/loggggooo.jpg'
 import SwitchMode from './SwitchMode'
-import SearchInput from './searchInput'
-import log from '../assets/stock-vector-let-s-play-neon-sign-bright-signboard-light-banner-game-logo-neon-emblem-vector-illustration-1310883713.jpg'
+import SearchInput from './SearchInput'
 
  interface Props {
   onSearch : (searchText : string) => void
@@ -12,7 +12,9 @@ import log from '../assets/stock-vector-let-s-play-neon-sign-bright-signboard-li
 const Nav = ({onSearch} : Props) => {
   return (
    <HStack  padding='10px'>
+    <Link to={''}>
     <Image src={logo} boxSize='80px'borderRadius={20} marginRight={5}/>
+    </Link>
     <SearchInput onSearch={onSearch}/>
     <SwitchMode />
    </HStack>
